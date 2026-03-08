@@ -16,12 +16,16 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground leading-relaxed text-lg">
-              As an final year Electrical Engineering student at NIT Andhra Pradesh, I bring a unique perspective to software: a deep understanding of low-level systems combined with high-level application architecture. 
-            </p>
+  As a final-year Electrical and Electronics Engineering student at NIT Andhra Pradesh, 
+  I bring a systems-oriented perspective to software development, combining an 
+  understanding of low-level hardware with modern application architecture.
+</p>
 
-            <p className="text-muted-foreground leading-relaxed">
-              I specialize in building **performant full-stack applications** and **IoT ecosystems**. With 700+ algorithmic challenges solved, I don't just write code that works—I write code optimized for scale and efficiency.
-            </p>
+<p className="text-muted-foreground leading-relaxed">
+  I focus on building performant full-stack applications and data-driven IoT systems. 
+  Having solved 700+ algorithmic problems, I approach development with strong problem-
+  solving skills and an emphasis on writing efficient, maintainable code.
+</p>
 
             <div className="flex flex-wrap gap-4 pt-6">
               <a href="#contact" className="cosmic-button">
