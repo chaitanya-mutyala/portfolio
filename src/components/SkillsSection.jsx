@@ -2,28 +2,26 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  // Programming & DSA
-  { name: "C++", level: 85, category: "programming" },
-  { name: "Python", level: 85, category: "programming" },
-  { name: "JavaScript", level: 80, category: "programming" },
-  { name: "SQL", level: 80, category: "programming" },
+  // Programming & Data
+  { name: "C++ (DSA)", category: "core", level: 90 },
+  { name: "Python", category: "core", level: 85 },
+  { name: "SQL", category: "core", level: 80 },
+  { name: "JavaScript", category: "core", level: 80 },
 
-  // Frontend
-  { name: "React", level: 85, category: "frontend" },
-  { name: "HTML/CSS", level: 85, category: "frontend" },
-  { name: "Tailwind CSS", level: 85, category: "frontend" },
+  // Development
+  { name: "ReactJS", category: "dev", level: 85 },
+  { name: "FastAPI", category: "dev", level: 80 },
+  { name: "Tailwind CSS", category: "dev", level: 85 },
+  { name: "Appwrite", category: "dev", level: 75 },
 
-  // Backend & Databases
-  { name: "Firebase (Realtime DB)", level: 80, category: "backend" },
-  { name: "MySQL", level: 75, category: "backend" },
-
-  // Tools & Platforms
-  { name: "Git & GitHub", level: 85, category: "tools" },
-  { name: "VS Code", level: 90, category: "tools" },
-  { name: "ESP32 / IoT", level: 75, category: "tools" },
+  // AI & Systems
+  { name: "TensorFlow / ML", category: "specialized", level: 75 },
+  { name: "ESP32 / IoT", category: "specialized", level: 80 },
+  { name: "Firebase", category: "specialized", level: 80 },
+  { name: "Git / GitHub", category: "specialized", level: 85 },
 ];
 
-const categories = ["all", "programming", "frontend", "backend", "tools"];
+const categories = ["all", "core", "dev", "specialized"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -33,22 +31,22 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" className="py-24 px-4 bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
+          Technical <span className="text-primary">Competencies</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
             <button
-              key={key}
+              key={category}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-5 py-2 rounded-full transition-all capitalize text-sm",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-muted-foreground hover:bg-secondary"
+                  : "bg-background border border-border text-muted-foreground hover:border-primary"
               )}
             >
               {category}
@@ -56,27 +54,17 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
-            >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {filteredSkills.map((skill) => (
+            <div key={skill.name} className="bg-card p-5 rounded-xl border border-border group">
+              <div className="flex justify-between items-center mb-3">
+                <span className="font-semibold">{skill.name}</span>
               </div>
-
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
+              <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden">
                 <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
+                  className="bg-primary h-full transition-all duration-1000"
                   style={{ width: `${skill.level}%` }}
                 />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
               </div>
             </div>
           ))}

@@ -1,108 +1,82 @@
-import { Briefcase, Code, Cpu } from "lucide-react";
+import { Briefcase, Code, Cpu, ExternalLink } from "lucide-react";
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary"> Me</span>
+    <section id="about" className="py-24 px-4 relative overflow-hidden">
+      <div className="container mx-auto max-w-6xl">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">
+          The <span className="text-primary text-glow">Engineer</span> Behind the Code
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">
-              Aspiring Software Development Engineer
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Narrative Content */}
+          <div className="lg:col-span-7 space-y-6">
+            <h3 className="text-2xl font-bold text-white">
+              Bridging the gap between Hardware and Scalable Software.
             </h3>
 
-            <p className="text-muted-foreground">
-              I am a final-year B.Tech student in Electrical and Electronics
-              Engineering at NIT Andhra Pradesh, actively transitioning into
-              software development. I have a strong foundation in Data
-              Structures, Algorithms, and Object-Oriented Programming.
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              As an final year Electrical Engineering student at NIT Andhra Pradesh, I bring a unique perspective to software: a deep understanding of low-level systems combined with high-level application architecture. 
             </p>
 
-            <p className="text-muted-foreground">
-              I enjoy building scalable systems across full-stack web
-              development, IoT-backed applications, and AI-assisted platforms.
-              I have solved 700+ DSA problems and love turning real-world
-              problems into clean, efficient software solutions.
+            <p className="text-muted-foreground leading-relaxed">
+              I specialize in building **performant full-stack applications** and **IoT ecosystems**. With 700+ algorithmic challenges solved, I don't just write code that works—I write code optimized for scale and efficiency.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-  <a href="#contact" className="cosmic-button">
-    Get In Touch
-  </a>
-
-  <a
-    href="https://drive.google.com/file/d/1AfGOKcmAdl0VYA9a5EDTjIx3H4gAY0AY/view?usp=sharing"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
-  >
-    View CV
-  </a>
-
-  <a
-    href="https://leetcode.com/u/chaitu_mutyala/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
-  >
-    LeetCode Profile
-  </a>
-</div>
-
+            <div className="flex flex-wrap gap-4 pt-6">
+              <a href="#contact" className="cosmic-button">
+                Get In Touch
+              </a>
+              <a
+                href={import.meta.env.VITE_DRIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-2 rounded-full border border-primary/50 text-primary hover:bg-primary/10 transition-all"
+              >
+                Resume <ExternalLink size={16} />
+              </a>
+              <a
+                href="https://leetcode.com/u/chaitu_mutyala/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-2 rounded-full border border-primary/50 text-primary hover:bg-primary/10 transition-all"
+              >
+                LeetCode <Code size={16} />
+              </a>
+            </div>
           </div>
 
-          {/* Right cards */}
-          <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Software Development
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Strong in DSA, problem-solving, and building efficient,
-                    scalable applications using C++, Python, and JavaScript.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Cpu className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Full Stack & IoT</h4>
-                  <p className="text-muted-foreground">
-                    Built real-time systems using React, Firebase, ESP32, and
-                    cloud databases for monitoring and analytics.
-                  </p>
+          {/* Impact Cards */}
+          <div className="lg:col-span-5 grid grid-cols-1 gap-4">
+            {[
+              {
+                icon: <Code className="text-primary" />,
+                title: "Algorithms & Logic",
+                desc: "Expertise in C++ and Data Structures. Focused on computational efficiency and memory optimization."
+              },
+              {
+                icon: <Cpu className="text-primary" />,
+                title: "Systems & IoT",
+                desc: "Full-cycle IoT development: from ESP32 firmware to real-time Firebase analytics and React dashboards."
+              },
+              {
+                icon: <Briefcase className="text-primary" />,
+                title: "Engineering Mindset",
+                desc: "End-to-end ownership. I build with the 'First Principles' approach inherited from my Electrical background."
+              }
+            ].map((card, i) => (
+              <div key={i} className="gradient-border p-5 bg-card/50 backdrop-blur-sm card-hover">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-primary/10">
+                    {card.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">{card.title}</h4>
+                    <p className="text-sm text-muted-foreground mt-1">{card.desc}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Projects & Ownership</h4>
-                  <p className="text-muted-foreground">
-                    Led projects end-to-end from system design and development
-                    to deployment, testing, and optimization.
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
