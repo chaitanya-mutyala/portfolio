@@ -26,11 +26,20 @@ export const HeroSection = () => {
             and building scalable full-stack and IoT-backed applications.
           </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
-              View My Projects
-            </a>
-          </div>
+          <div className="pt-4 opacity-0 animate-fade-in-delay-4 flex flex-col sm:flex-row gap-4 justify-center">
+  <a href="#projects" className="cosmic-button">
+    View My Projects
+  </a>
+
+  <a
+    href="https://leetcode.com/u/chaitu_mutyala/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="cosmic-button"
+  >
+    View My Coding Profile
+  </a>
+</div>
         </div>
       </div>
 
